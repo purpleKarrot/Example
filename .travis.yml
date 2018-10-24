@@ -1,0 +1,37 @@
+dist: trusty
+sudo: false
+language: cpp
+
+matrix:
+  include:
+  - compiler: clang
+  - compiler: clang
+    env:
+    - CFLAGS="-fsanitize=address -fno-omit-frame-pointer"
+      CXXFLAGS="-fsanitize=address -fno-omit-frame-pointer"
+      MEMORYCHECK_TYPE=AddressSanitizer
+  - compiler: clang
+    env:
+    - CFLAGS="-fsanitize=memory -fno-omit-frame-pointer"
+      CXXFLAGS="-fsanitize=memory -fno-omit-frame-pointer"
+      MEMORYCHECK_TYPE=MemorySanitizer
+  - compiler: clang
+    env:
+    - CFLAGS="-fsanitize=thread -fno-omit-frame-pointer"
+      CXXFLAGS="-fsanitize=thread -fno-omit-frame-pointer"
+      MEMORYCHECK_TYPE=ThreadSanitizer
+  - compiler: gcc
+    env:
+    - CFLAGS=--coverage
+      CXXFLAGS=--coverage
+      COVERAGE_COMMAND=$(which gcov)
+  - compiler: gcc
+    addons:
+      apt:
+        packages:
+        - valgrind
+    env:
+    - MEMORYCHECK_COMMAND=$(which valgrind)
+
+script:
+- ctest -S .travis.cmake -V
