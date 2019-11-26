@@ -8,7 +8,7 @@ set(CTEST_PROJECT_NAME "Example")
 set(CTEST_NIGHTLY_START_TIME "1:00:00 UTC")
 
 set(CTEST_DROP_METHOD "https")
-set(CTEST_DROP_SITE "ci.purplekarrot.net")
+set(CTEST_DROP_SITE "floyd-ci.localtunnel.me")
 set(CTEST_DROP_LOCATION "/cdash/submit.php?project=purpleKarrot/Example")
 set(CTEST_DROP_SITE_CDASH TRUE)
 
