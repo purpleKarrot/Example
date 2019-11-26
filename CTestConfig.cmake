@@ -9,7 +9,7 @@ set(CTEST_NIGHTLY_START_TIME "1:00:00 UTC")
 
 set(CTEST_DROP_METHOD "https")
 set(CTEST_DROP_SITE "ci.purplekarrot.net")
-set(CTEST_DROP_LOCATION "/cdash/github/purpleKarrot/Example/submit.php?fool=ctest")
+set(CTEST_DROP_LOCATION "/cdash/submit.php?project=purpleKarrot/Example")
 set(CTEST_DROP_SITE_CDASH TRUE)
 
 set(CTEST_LABELS_FOR_SUBPROJECTS

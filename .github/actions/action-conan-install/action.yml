@@ -1,0 +1,6 @@
+name: 'Conan Install'
+description: 'Conan Install'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args: ['--help']
