@@ -3,4 +3,4 @@ description: 'Conan Install'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args: ['--help']
+  args: ['install', '--help']
