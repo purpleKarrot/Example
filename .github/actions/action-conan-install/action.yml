@@ -3,4 +3,4 @@ description: 'Conan Install'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args: ['install', '.']
+  args: ['install', '--generator', 'cmake_find_package_multi', '.']
