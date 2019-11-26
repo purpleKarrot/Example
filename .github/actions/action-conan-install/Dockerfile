@@ -14,5 +14,9 @@
 
 FROM alpine:3.10
 RUN apk add --no-cache python3
-RUN pip3 install conan
+
+RUN apk add --no-cache --virtual .build-deps gcc \
+  && pip3 install conan \
+  && apk del .build-deps
+
 ENTRYPOINT ["conan"]
