@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.9)
 set(CTEST_SOURCE_DIRECTORY "$ENV{GITHUB_WORKSPACE}")
 set(CTEST_BINARY_DIRECTORY "$ENV{GITHUB_WORKSPACE}/build")
 
-set(CTEST_SITE "travis-ci.org")
+set(CTEST_SITE "github.com")
 set(CTEST_BUILD_NAME "$ENV{TRAVIS_JOB_NUMBER}")
 set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
 
