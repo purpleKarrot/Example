@@ -15,7 +15,7 @@
 FROM alpine:3.10
 RUN apk add --no-cache python3
 
-RUN apk add --no-cache --virtual .build-deps gcc python3-dev \
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev python3-dev \
   && pip3 install conan \
   && apk del .build-deps
 
