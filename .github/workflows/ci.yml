@@ -11,6 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: ./.github/actions/action-conan-install
     - run: ls -al .
+    - run: cat zlibTarget-release.cmake
     - run: cat /github/home/.conan/profiles/default
     - run: ctest --version
     - run: ctest -S .github.cmake -V
