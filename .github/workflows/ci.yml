@@ -1,13 +1,51 @@
-name: CI
-
+name: Build and Test
 on: [push]
-
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  ubuntu-gcov:
+    name: Ubuntu - Unix Makefiles
+    runs-on: ubuntu-22.04
+    env:
+      CC: gcc-12
+      CXX: g++-12
+      CFLAGS: --coverage
+      CXXFLAGS: --coverage
     steps:
-    - uses: actions/checkout@v1
-    - run: ctest --version
-    - run: ctest -S .github.cmake -V
+      - uses: actions/checkout@v4
+      - uses: purpleKarrot/cmake-action@master
+        with:
+          coverage-command: gcov-12
+          submit-url: "https://ci.purplekarrot.net/api/submit?project=${{ github.repository }}"
+  ubuntu-asan:
+    name: Ubuntu - Ninja
+    runs-on: ubuntu-22.04
+    env:
+      CC: clang-15
+      CXX: clang++-15
+      CFLAGS: -fno-omit-frame-pointer -fsanitize=address
+      CXXFLAGS: -fno-omit-frame-pointer -fsanitize=address
+    steps:
+      - uses: actions/checkout@v4
+      - uses: seanmiddleditch/gha-setup-ninja@master
+      - uses: purpleKarrot/cmake-action@master
+        with:
+          cmake-generator: Ninja
+          memorycheck-type: AddressSanitizer
+          submit-url: "https://ci.purplekarrot.net/api/submit?project=${{ github.repository }}"
+  macos:
+    name: MacOS - Xcode
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: purpleKarrot/cmake-action@master
+        with:
+          cmake-generator: Xcode
+          submit-url: "https://ci.purplekarrot.net/api/submit?project=${{ github.repository }}"
+  windows:
+    name: Windows - Visual Studio 17 2022
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: purpleKarrot/cmake-action@master
+        with:
+          cmake-generator: Visual Studio 17 2022
+          submit-url: "https://ci.purplekarrot.net/api/submit?project=${{ github.repository }}"
