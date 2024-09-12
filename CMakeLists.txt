@@ -9,4 +9,5 @@ project(Example)
 
 include(CTest)
 
+add_subdirectory(Measurements)
 add_subdirectory(Sanitizers)
