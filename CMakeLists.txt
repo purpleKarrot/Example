@@ -5,7 +5,13 @@
 # as published by Sam Hocevar.  See the COPYING file for more details.
 
 cmake_minimum_required(VERSION 3.0)
-project(Example)
+
+project(Example
+  VERSION 0.1.0
+  DESCRIPTION "Examples of bad code, failing tests, and low coverage."
+  HOMEPAGE_URL "https://purplekarrot.net/Example"
+  LANGUAGES C
+  )
 
 include(CTest)
 
