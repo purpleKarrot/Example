@@ -15,5 +15,6 @@ project(Example
 
 include(CTest)
 
+add_subdirectory(Failures)
 add_subdirectory(Measurements)
 add_subdirectory(Sanitizers)
