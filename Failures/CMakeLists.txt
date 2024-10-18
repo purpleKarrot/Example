@@ -8,3 +8,6 @@ add_executable(fpe fpe.c)
 target_compile_options(fpe PRIVATE -Wall -Wextra)
 
 add_test(NAME Failures.FPE COMMAND fpe)
+
+add_test(NAME Failures.DIS COMMAND fpe)
+set_property(TEST Failures.DIS PROPERTY DISABLED ON)
