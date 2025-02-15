@@ -19,4 +19,7 @@ add_subdirectory(Hello)
 add_subdirectory(Failures)
 add_subdirectory(Measurements)
 add_subdirectory(Sanitizers)
-add_subdirectory(Swift)
+
+if(CMAKE_GENERATOR MATCHES "Ninja|Xcode")
+  add_subdirectory(Swift)
+endif()
