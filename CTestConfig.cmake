@@ -4,13 +4,11 @@
 # terms of the Do What The Fuck You Want To Public License, Version 2,
 # as published by Sam Hocevar.  See the COPYING file for more details.
 
-set(CTEST_PROJECT_NAME "Example")
 set(CTEST_NIGHTLY_START_TIME "1:00:00 UTC")
 
-set(CTEST_DROP_METHOD "https")
-set(CTEST_DROP_SITE "ci.purplekarrot.net")
-set(CTEST_DROP_LOCATION "/api/submit?project=purpleKarrot/Example")
-set(CTEST_DROP_SITE_CDASH TRUE)
+set(CTEST_SUBMIT_URL
+  "https://ci.purplekarrot.net/api/submit?project=Example"
+  )
 
 set(CTEST_LABELS_FOR_SUBPROJECTS
   Sanitizers
