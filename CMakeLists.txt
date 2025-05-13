@@ -23,3 +23,5 @@ add_subdirectory(Sanitizers)
 if(CMAKE_GENERATOR MATCHES "Ninja|Xcode")
   add_subdirectory(Swift)
 endif()
+
+include(CPack)
