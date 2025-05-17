@@ -6,9 +6,7 @@
 
 set(CTEST_NIGHTLY_START_TIME "1:00:00 UTC")
 
-set(CTEST_SUBMIT_URL
-  "https://ci.purplekarrot.net/api/submit?project=Example"
-  )
+set(CTEST_SUBMIT_URL "https://chorse.dev/api/submit?project=Example")
 
 set(CTEST_LABELS_FOR_SUBPROJECTS
   Sanitizers
