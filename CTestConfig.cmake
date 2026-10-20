@@ -6,7 +6,9 @@
 
 set(CTEST_NIGHTLY_START_TIME "1:00:00 UTC")
 
-set(CTEST_SUBMIT_URL "https://chorse.dev/api/submit?project=Example")
+string(JOIN "" CTEST_SUBMIT_URL "https://ci.chorse.dev/api/submit?project="
+  "0f061fe4e6852250274ed3d786759168366c6a1cbdc1cc2dbb2d6a0e944cdb2b%3Aexample"
+  )
 
 set(CTEST_LABELS_FOR_SUBPROJECTS
   Sanitizers
